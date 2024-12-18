@@ -8,17 +8,24 @@ A huge shoutout to the **Shoppin** organization for being the kickstart motivati
 
 ## Table of Contents 📑
 1. [Introduction](#introduction)
-2. [Methods](#methods)
-3. [Code Documentation](#code-documentation)
-4. [Datasets](#datasets)
-5. [Results and Analysis](#results-and-analysis)
-6. [Performance Comparison](#performance-comparison)
-7. [Fine-Tuning for Computational Efficiency](#fine-tuning-for-computational-efficiency)
-8. [Citations](#citations)
+2. [Code Implementation](#code-implementation)
+3. [Methods](#methods)
+4. [Code Documentation](#code-documentation)
+5. [Datasets](#datasets)
+6. [Results and Analysis](#results-and-analysis)
+7. [Performance Comparison](#performance-comparison)
+8. [Fine-Tuning for Computational Efficiency](#fine-tuning-for-computational-efficiency)
+9. [Citations](#citations)
 
 ## Introduction 🧠
 
 Image similarity is a fundamental task in computer vision with applications in image retrieval, object recognition, and more. This repository evaluates five different image similarity methods on three diverse datasets to understand their strengths, weaknesses, and suitability for various applications.
+
+## Code Implementation
+
+1. Open the given `.ipynb` file in google colab or jupyter notebook.
+2. Upload or copy the given datasets to the default directory.
+3. Starting running the code.
 
 ## Methods 🛠️
 
