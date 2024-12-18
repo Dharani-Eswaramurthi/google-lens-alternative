@@ -23,9 +23,9 @@ Image similarity is a fundamental task in computer vision with applications in i
 
 ## Code Implementation
 
-1. Open the given `.ipynb` file in google colab or jupyter notebook.
-2. Upload or copy the given datasets to the default directory.
-3. Starting running the code.
+1. Open the given `.ipynb` file in Google Colab or Jupyter Notebook.
+2. Upload or copy the given dataset zips to the default directory. Do not extract it.
+3. Start running the code, it will do the rest for you.
 
 ## Methods 🛠️
 
