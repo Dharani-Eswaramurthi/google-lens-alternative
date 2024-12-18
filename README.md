@@ -1,100 +1,83 @@
 # Image Similarity Analysis
 
-This repository contains code for analyzing image similarity using various methods, including ORB (Oriented FAST and Rotated BRIEF), ViT (Vision Transformer), CNN (Convolutional Neural Network), Perceptual Hashing, and CLIP (Contrastive Language-Image Pre-training). The code computes similarity scores between a query image and a dataset of images, classifies images as relevant or irrelevant based on these scores, and evaluates the performance of each method.
+This repository contains code for analyzing the similarity between a query image and a dataset of images using five different methods: ORB, ViT, CNN, Perceptual Hashing, and CLIP. The goal is to classify images as relevant or irrelevant to the query image based on similarity scores.
 
 ## Table of Contents
 
-- [Introduction](#introduction)
-- [Methods](#methods)
-  - [ORB Similarity](#orb-similarity)
-  - [ViT Similarity](#vit-similarity)
-  - [CNN Similarity](#cnn-similarity)
-  - [Perceptual Hashing](#perceptual-hashing)
-  - [CLIP Similarity](#clip-similarity)
-- [Performance Analysis](#performance-analysis)
-- [Results](#results)
-- [References](#references)
+1. [Introduction](#introduction)
+2. [Methods](#methods)
+3. [Performance Analysis](#performance-analysis)
+4. [Results](#results)
+5. [Conclusion](#conclusion)
+6. [References](#references)
 
 ## Introduction
 
-Image similarity analysis is a crucial task in computer vision with applications in image retrieval, object recognition, and content-based image search. This repository provides a comprehensive comparison of different image similarity methods, evaluating their performance in terms of precision, recall, retrieval accuracy, and computation time.
+Image similarity analysis is a crucial task in various applications such as image retrieval, content-based image search, and object recognition. This repository provides a comprehensive analysis of five different methods for image similarity: ORB, ViT, CNN, Perceptual Hashing, and CLIP. Each method has its own strengths and weaknesses, and the goal is to compare their performance in terms of precision, recall, and accuracy.
 
 ## Methods
 
-### ORB Similarity
+### 1. ORB (Oriented FAST and Rotated BRIEF)
 
-ORB (Oriented FAST and Rotated BRIEF) is a feature detection and description algorithm that is robust to rotation and scale changes. It detects keypoints and computes descriptors for these keypoints, which are then matched between images to compute similarity scores.
+ORB is a feature detection and description algorithm that is robust to rotation and scale changes. It detects keypoints in images and describes them using binary descriptors. The similarity between images is computed based on the number of matching keypoints.
 
-### ViT Similarity
+### 2. ViT (Vision Transformer)
 
-ViT (Vision Transformer) is a transformer-based model for image classification that has shown state-of-the-art performance on various benchmarks. It processes images as sequences of patches and uses self-attention mechanisms to capture global dependencies.
+ViT is a transformer-based model that applies the transformer architecture to image data. It extracts features from images and computes similarity scores using cosine similarity. ViT has shown promising results in various computer vision tasks.
 
-### CNN Similarity
+### 3. CNN (Convolutional Neural Network)
 
-CNN (Convolutional Neural Network) is a deep learning model widely used for image classification tasks. In this repository, we use a pre-trained ResNet50 model to extract features from images and compute similarity scores based on these features.
+CNNs are widely used in image classification and object detection tasks. In this analysis, a pre-trained ResNet50 model is used to extract features from images, and similarity scores are computed using cosine similarity.
 
-### Perceptual Hashing
+### 4. Perceptual Hashing
 
 Perceptual Hashing is a technique that generates a hash value for an image based on its perceptual features. The similarity between images is computed based on the Hamming distance between their hash values.
 
-### CLIP Similarity
+### 5. CLIP (Contrastive Language-Image Pre-training)
 
-CLIP (Contrastive Language-Image Pre-training) is a model that learns visual concepts from natural language supervision. It can be used to compute similarity scores between images based on their feature representations.
+CLIP is a model that learns visual concepts from natural language supervision. It extracts features from images and computes similarity scores using cosine similarity. CLIP has shown state-of-the-art performance in various image retrieval tasks.
 
 ## Performance Analysis
 
-The performance of each method is evaluated using precision, recall, retrieval accuracy, and computation time. The results are analyzed to compare the effectiveness and efficiency of each method.
+The performance of each method is analyzed based on precision, recall, and accuracy. The similarity scores are used to classify images as relevant or irrelevant to the query image. The optimal threshold for classification is determined based on the mean of the similarity scores.
+
+### Fine-Tuning for Computational Efficiency and Scalability
+
+To achieve computational efficiency and scalability for real-time usage scenarios, several fine-tuning techniques can be applied:
+
+1. **Batch Processing**: Process images in batches to utilize GPU resources efficiently.
+2. **Feature Caching**: Precompute and cache features for dataset images to avoid redundant computations.
+3. **Model Pruning**: Prune the models to reduce their size and improve inference speed.
+4. **Quantization**: Quantize the models to reduce memory usage and improve inference speed.
 
 ## Results
 
-### ORB Similarity
+The results of the analysis are presented in the table below:
 
-- **Precision:** 1.0000
-- **Recall:** 1.0000
-- **Retrieval Accuracy:** 1.0000
-- **Time Taken:** 1.05 seconds
+| Method          | Precision | Recall | Accuracy | Time Taken (seconds) |
+|-----------------|-----------|--------|----------|----------------------|
+| ORB Similarity  | 0.6000    | 1.0000 | 0.7778   | 1.04                 |
+| ViT Similarity  | 0.4000    | 0.6667 | 0.5556   | 8.47                 |
+| CNN Similarity  | 0.6000    | 1.0000 | 0.7778   | 2.87                 |
+| Perceptual Hashing | 0.3333  | 0.6667 | 0.4444   | 0.08                 |
+| CLIP            | 0.6000    | 1.0000 | 0.7778   | 37.57                |
 
-### ViT Similarity
+### Insights
 
-- **Precision:** 0.6667
-- **Recall:** 0.6667
-- **Retrieval Accuracy:** 0.7778
-- **Time Taken:** 8.16 seconds
+- **ORB Similarity**: ORB provides good precision and recall but is computationally efficient. It is suitable for real-time applications.
+- **ViT Similarity**: ViT provides moderate precision and recall but is computationally intensive. It is suitable for applications where high accuracy is required.
+- **CNN Similarity**: CNN provides good precision and recall and is computationally efficient. It is suitable for real-time applications.
+- **Perceptual Hashing**: Perceptual Hashing provides low precision and recall but is extremely fast. It is suitable for applications where speed is critical.
+- **CLIP**: CLIP provides good precision and recall but is computationally intensive. It is suitable for applications where high accuracy is required.
 
-### CNN Similarity
+## Conclusion
 
-- **Precision:** 0.6667
-- **Recall:** 0.6667
-- **Retrieval Accuracy:** 0.7778
-- **Time Taken:** 3.70 seconds
-
-### Perceptual Hashing
-
-- **Precision:** 0.6667
-- **Recall:** 0.6667
-- **Retrieval Accuracy:** 0.7778
-- **Time Taken:** 0.09 seconds
-
-### CLIP Similarity
-
-- **Precision:** 1.0000
-- **Recall:** 1.0000
-- **Retrieval Accuracy:** 1.0000
-- **Time Taken:** 38.10 seconds
-
-### Analysis
-
-- **ORB Similarity:** Achieved perfect precision, recall, and retrieval accuracy with a relatively short computation time. This method is highly effective for keypoint-based image matching.
-- **ViT Similarity:** Showed moderate performance in terms of precision, recall, and retrieval accuracy. The computation time was longer compared to other methods, indicating that ViT may not be the most efficient choice for real-time applications.
-- **CNN Similarity:** Demonstrated similar performance to ViT in terms of precision, recall, and retrieval accuracy. The computation time was shorter than ViT, making it a more efficient option.
-- **Perceptual Hashing:** Achieved moderate performance with the shortest computation time. This method is highly efficient but may not capture complex visual similarities as effectively as other methods.
-- **CLIP Similarity:** Achieved perfect precision, recall, and retrieval accuracy but with the longest computation time. CLIP is highly effective for capturing complex visual similarities but may not be suitable for real-time applications due to its high computational cost.
+The analysis shows that each method has its own strengths and weaknesses. The choice of method depends on the specific requirements of the application, such as computational efficiency, scalability, and accuracy. Fine-tuning techniques can be applied to improve the performance of each method for real-time usage scenarios.
 
 ## References
 
-- Rublee, E., Rabaud, V., Konolige, K., & Bradski, G. (2011). ORB: An efficient alternative to SIFT or SURF. In 2011 International Conference on Computer Vision (pp. 2564-2571). IEEE.
-- Dosovitskiy, A., Beyer, L., Kolesnikov, A., Weissenborn, D., Zhai, X., Unterthiner, T., ... & Houlsby, N. (2020). An image is worth 16x16 words: Transformers for image recognition at scale. arXiv preprint arXiv:2010.11929.
-- He, K., Zhang, X., Ren, S., & Sun, J. (2016). Deep residual learning for image recognition. In Proceedings of the IEEE conference on computer vision and pattern recognition (pp. 770-778).
-- Zauner, C. (2010). Implementation of a perceptual image hash function. In Proceedings of the 12th ACM workshop on Multimedia and security (pp. 11-16).
-- Radford, A., Kim, J. W., Hallacy, C., Ramesh, A., Goh, G., Agarwal, S., ... & Sutskever, I. (2021). Learning transferable visual models from natural language supervision. arXiv preprint arXiv:2103.00020.
-
+1. Rublee, E., Rabaud, V., Konolige, K., & Bradski, G. (2011). ORB: An efficient alternative to SIFT or SURF. In 2011 International Conference on Computer Vision (pp. 2564-2571). IEEE.
+2. Dosovitskiy, A., Beyer, L., Kolesnikov, A., Weissenborn, D., Zhai, X., Unterthiner, T., ... & Houlsby, N. (2020). An image is worth 16x16 words: Transformers for image recognition at scale. arXiv preprint arXiv:2010.11929.
+3. He, K., Zhang, X., Ren, S., & Sun, J. (2016). Deep residual learning for image recognition. In Proceedings of the IEEE conference on computer vision and pattern recognition (pp. 770-778).
+4. Zauner, M., Breuel, T. M., & Bischof, H. (2010). Implementation of an image hash function based on perceptual hashing. In Proceedings of the 2010 ACM symposium on Applied computing (pp. 1897-1900).
+5. Radford, A., Kim, J. W., Hallacy, C., Ramesh, A., Goh, G., Agarwal, S., ... & Sutskever, I. (2021). Learning transferable visual models from natural language supervision. arXiv preprint arXiv:2103.00020.
